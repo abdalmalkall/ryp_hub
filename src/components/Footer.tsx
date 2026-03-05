@@ -109,7 +109,7 @@ const Footer = () => {
                       w-10 h-10 md:w-12 md:h-12 bg-secondary rounded-lg
                       border border-border text-foreground
                       flex items-center justify-center
-                      transition-all duration-300
+                      transition-all duration-200
                       hover:scale-105 hover:text-primary-foreground active:scale-95
                       ${social.color}
                     `}

@@ -104,7 +104,7 @@
 
   a,
   button {
-    @apply transition-all duration-200;
+    @apply transition-all duration-150;
   }
 
   a:hover,
@@ -139,9 +139,9 @@
     transform: translateY(26px) scale(0.99);
     filter: blur(2px);
     transition:
-      opacity 700ms ease,
-      transform 700ms ease,
-      filter 700ms ease;
+      opacity 480ms ease,
+      transform 480ms ease,
+      filter 480ms ease;
     transition-delay: var(--reveal-delay, 0ms);
     will-change: opacity, transform, filter;
   }
@@ -153,7 +153,7 @@
   }
 
   .social-action:active {
-    animation: social-pop 220ms ease;
+    animation: social-pop 170ms ease;
   }
 }
 

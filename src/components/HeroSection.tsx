@@ -36,7 +36,7 @@ const HeroSection = () => {
         <div className="opacity-0 animate-fade-up" style={{ animationDelay: "1.1s" }}>
           <a
             href="#contact"
-            className="inline-block mt-12 px-10 py-3.5 border border-foreground/20 text-foreground font-body text-xs tracking-[0.12em] uppercase hover:bg-foreground hover:text-background hover:shadow-xl active:scale-95 transition-all duration-500"
+            className="inline-block mt-12 px-10 py-3.5 border border-foreground/20 text-foreground font-body text-xs tracking-[0.12em] uppercase hover:bg-foreground hover:text-background hover:shadow-xl active:scale-95 transition-all duration-300"
           >
             Get in Touch
           </a>

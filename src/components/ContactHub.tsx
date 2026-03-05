@@ -74,19 +74,19 @@ const ContactHub = () => {
             >
               <div className="relative z-10">
                 <div
-                  className={`inline-flex items-center justify-center text-muted-foreground group-hover:text-foreground group-hover:scale-110 group-hover:-translate-y-1 transition-all duration-500 mb-6 ${
+                  className={`inline-flex items-center justify-center text-muted-foreground group-hover:text-foreground group-hover:scale-110 group-hover:-translate-y-1 transition-all duration-300 mb-6 ${
                     contact.title === "Website" ? "w-16 h-16" : "w-12 h-12"
                   }`}
                 >
                   {contact.icon}
                 </div>
-                <h3 className="font-display text-xl font-normal text-foreground mb-2 tracking-[0.04em] uppercase group-hover:text-primary transition-colors duration-500">
+                <h3 className="font-display text-xl font-normal text-foreground mb-2 tracking-[0.04em] uppercase group-hover:text-primary transition-colors duration-300">
                   {contact.title}
                 </h3>
                 <p className="text-xs text-muted-foreground font-body tracking-normal">
                   {contact.description}
                 </p>
-                <div className="line-elegant w-0 group-hover:w-12 mx-auto mt-6 transition-all duration-700" />
+                <div className="line-elegant w-0 group-hover:w-12 mx-auto mt-6 transition-all duration-400" />
               </div>
             </a>
           ))}

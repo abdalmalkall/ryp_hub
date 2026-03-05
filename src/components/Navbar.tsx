@@ -20,7 +20,7 @@ const Navbar = () => {
             <a
               key={item}
               href={item === "Home" ? "#" : "#contact"}
-              className="text-xs font-body text-muted-foreground hover:text-foreground transition-colors duration-500 tracking-[0.12em] uppercase hover:scale-[1.03] active:scale-95"
+              className="text-xs font-body text-muted-foreground hover:text-foreground transition-colors duration-300 tracking-[0.12em] uppercase hover:scale-[1.03] active:scale-95"
             >
               {item}
             </a>
@@ -44,7 +44,7 @@ const Navbar = () => {
                 key={item}
                 href={item === "Home" ? "#" : "#contact"}
                 onClick={() => setOpen(false)}
-                className="text-xs font-body text-muted-foreground hover:text-foreground transition-colors duration-500 tracking-[0.12em] uppercase hover:scale-[1.03] active:scale-95"
+                className="text-xs font-body text-muted-foreground hover:text-foreground transition-colors duration-300 tracking-[0.12em] uppercase hover:scale-[1.03] active:scale-95"
               >
                 {item}
               </a>
