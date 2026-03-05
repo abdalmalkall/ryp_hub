@@ -1,4 +1,4 @@
-import { Instagram, MessageCircle, Mail, Youtube, Linkedin } from "lucide-react";
+import { Instagram, MessageCircle, Mail, Youtube, Linkedin, Globe } from "lucide-react";
 import type { MouseEvent } from "react";
 
 interface ContactCard {
@@ -38,6 +38,12 @@ const contacts: ContactCard[] = [
     icon: <Linkedin size={28} />,
     href: "https://www.linkedin.com/in/ibrahem-alyan-a885a7387",
     description: "Connect professionally",
+  },
+  {
+    title: "Website",
+    icon: <Globe size={28} />,
+    href: "https://render-your-plan.netlify.app/",
+    description: "Visit our portfolio",
   },
 ];
 
