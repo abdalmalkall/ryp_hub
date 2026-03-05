@@ -6,41 +6,38 @@
 
 @layer base {
   :root {
-    --background: 0 0% 5%;
-    --foreground: 0 0% 95%;
+    --background: 0 0% 3%;
+    --foreground: 0 0% 96%;
 
-    --card: 0 0% 8%;
-    --card-foreground: 0 0% 95%;
+    --card: 0 0% 6%;
+    --card-foreground: 0 0% 96%;
 
-    --popover: 0 0% 8%;
-    --popover-foreground: 0 0% 95%;
+    --popover: 0 0% 6%;
+    --popover-foreground: 0 0% 96%;
 
-    --primary: 38 30% 55%;
-    --primary-foreground: 0 0% 5%;
+    --primary: 0 0% 100%;
+    --primary-foreground: 0 0% 3%;
 
-    --secondary: 0 0% 12%;
+    --secondary: 0 0% 10%;
     --secondary-foreground: 0 0% 90%;
 
-    --muted: 0 0% 15%;
-    --muted-foreground: 0 0% 60%;
+    --muted: 0 0% 12%;
+    --muted-foreground: 0 0% 55%;
 
-    --accent: 38 20% 25%;
-    --accent-foreground: 0 0% 95%;
+    --accent: 0 0% 15%;
+    --accent-foreground: 0 0% 96%;
 
     --destructive: 0 84.2% 60.2%;
-    --destructive-foreground: 210 40% 98%;
+    --destructive-foreground: 0 0% 98%;
 
-    --border: 0 0% 16%;
-    --input: 0 0% 16%;
-    --ring: 38 30% 55%;
+    --border: 0 0% 14%;
+    --input: 0 0% 14%;
+    --ring: 0 0% 100%;
 
-    --radius: 0.75rem;
+    --radius: 0.5rem;
 
     --font-display: 'Cormorant Garamond', serif;
     --font-body: 'Inter', sans-serif;
-
-    --glow-primary: 0 0% 100% / 0.06;
-    --glow-accent: 38 30% 55% / 0.15;
   }
 }
 
@@ -68,30 +65,40 @@
 }
 
 @layer components {
-  .card-glow {
-    @apply relative overflow-hidden;
-    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  .card-luxury {
+    @apply relative overflow-hidden bg-card border border-border rounded-sm;
+    transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
   }
-  .card-glow::before {
+  .card-luxury::after {
     content: '';
-    @apply absolute inset-0 opacity-0 rounded-[inherit];
-    background: radial-gradient(600px circle at var(--mouse-x, 50%) var(--mouse-y, 50%), hsl(var(--glow-accent)), transparent 40%);
-    transition: opacity 0.4s;
+    @apply absolute inset-0 opacity-0;
+    background: linear-gradient(135deg, hsl(0 0% 100% / 0.03), transparent 60%);
+    transition: opacity 0.5s;
   }
-  .card-glow:hover::before {
+  .card-luxury:hover::after {
     opacity: 1;
   }
-  .card-glow:hover {
-    transform: translateY(-4px);
-    box-shadow: 0 20px 40px -15px hsl(0 0% 0% / 0.5), 0 0 30px -10px hsl(var(--glow-accent));
+  .card-luxury:hover {
+    transform: translateY(-6px);
+    border-color: hsl(0 0% 30%);
+    box-shadow: 0 30px 60px -20px hsl(0 0% 0% / 0.7);
   }
 
-  .text-gradient {
-    @apply bg-clip-text text-transparent;
-    background-image: linear-gradient(135deg, hsl(0 0% 100%), hsl(var(--primary)));
+  .line-elegant {
+    @apply h-px;
+    background: linear-gradient(90deg, transparent, hsl(0 0% 40%), transparent);
   }
 
-  .line-accent {
-    @apply h-px bg-gradient-to-r from-transparent via-primary to-transparent;
+  .text-shimmer {
+    background: linear-gradient(110deg, hsl(0 0% 70%), hsl(0 0% 100%), hsl(0 0% 70%));
+    background-size: 200% 100%;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    animation: shimmer 3s ease-in-out infinite;
+  }
+
+  @keyframes shimmer {
+    0%, 100% { background-position: 200% center; }
+    50% { background-position: 0% center; }
   }
 }
