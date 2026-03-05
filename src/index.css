@@ -2,42 +2,94 @@
 @tailwind components;
 @tailwind utilities;
 
-@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500;600;700&family=Inter:wght@300;400;500;600&display=swap');
+/* Definition of the design system. All colors, gradients, fonts, etc should be defined here. */
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:wght@400;500;600;700&display=swap");
 
 @layer base {
   :root {
-    --background: 0 0% 3%;
+    --background: 0 0% 4%;
     --foreground: 0 0% 96%;
 
-    --card: 0 0% 6%;
+    --card: 0 0% 7%;
     --card-foreground: 0 0% 96%;
 
-    --popover: 0 0% 6%;
+    --popover: 0 0% 7%;
     --popover-foreground: 0 0% 96%;
 
     --primary: 0 0% 100%;
-    --primary-foreground: 0 0% 3%;
+    --primary-foreground: 0 0% 4%;
 
-    --secondary: 0 0% 10%;
-    --secondary-foreground: 0 0% 90%;
+    --secondary: 0 0% 12%;
+    --secondary-foreground: 0 0% 92%;
 
     --muted: 0 0% 12%;
-    --muted-foreground: 0 0% 55%;
+    --muted-foreground: 0 0% 64%;
 
-    --accent: 0 0% 15%;
+    --accent: 0 0% 16%;
     --accent-foreground: 0 0% 96%;
 
     --destructive: 0 84.2% 60.2%;
-    --destructive-foreground: 0 0% 98%;
+    --destructive-foreground: 210 40% 98%;
 
-    --border: 0 0% 14%;
-    --input: 0 0% 14%;
-    --ring: 0 0% 100%;
+    --border: 0 0% 18%;
+    --input: 0 0% 18%;
+    --ring: 0 0% 84%;
 
     --radius: 0.5rem;
 
-    --font-display: 'Cormorant Garamond', serif;
-    --font-body: 'Inter', sans-serif;
+    --sidebar-background: 0 0% 7%;
+
+    --sidebar-foreground: 0 0% 92%;
+
+    --sidebar-primary: 0 0% 100%;
+
+    --sidebar-primary-foreground: 0 0% 7%;
+
+    --sidebar-accent: 0 0% 14%;
+
+    --sidebar-accent-foreground: 0 0% 96%;
+
+    --sidebar-border: 0 0% 18%;
+
+    --sidebar-ring: 0 0% 84%;
+  }
+
+  .dark {
+    --background: 222.2 84% 4.9%;
+    --foreground: 210 40% 98%;
+
+    --card: 222.2 84% 4.9%;
+    --card-foreground: 210 40% 98%;
+
+    --popover: 222.2 84% 4.9%;
+    --popover-foreground: 210 40% 98%;
+
+    --primary: 210 40% 98%;
+    --primary-foreground: 222.2 47.4% 11.2%;
+
+    --secondary: 217.2 32.6% 17.5%;
+    --secondary-foreground: 210 40% 98%;
+
+    --muted: 217.2 32.6% 17.5%;
+    --muted-foreground: 215 20.2% 65.1%;
+
+    --accent: 217.2 32.6% 17.5%;
+    --accent-foreground: 210 40% 98%;
+
+    --destructive: 0 62.8% 30.6%;
+    --destructive-foreground: 210 40% 98%;
+
+    --border: 217.2 32.6% 17.5%;
+    --input: 217.2 32.6% 17.5%;
+    --ring: 212.7 26.8% 83.9%;
+    --sidebar-background: 240 5.9% 10%;
+    --sidebar-foreground: 240 4.8% 95.9%;
+    --sidebar-primary: 224.3 76.3% 48%;
+    --sidebar-primary-foreground: 0 0% 100%;
+    --sidebar-accent: 240 3.7% 15.9%;
+    --sidebar-accent-foreground: 240 4.8% 95.9%;
+    --sidebar-border: 240 3.7% 15.9%;
+    --sidebar-ring: 217.2 91.2% 59.8%;
   }
 }
 
@@ -50,55 +102,72 @@
     @apply bg-background text-foreground font-body antialiased;
   }
 
-  h1, h2, h3, h4, h5, h6 {
-    font-family: var(--font-display);
+  a,
+  button {
+    @apply transition-all duration-200;
+  }
+
+  a:hover,
+  button:hover {
+    transform: translateY(-1px);
+  }
+
+  a:active,
+  button:active {
+    transform: translateY(0) scale(0.98);
+  }
+
+  a:focus-visible,
+  button:focus-visible {
+    outline: 2px solid hsl(var(--ring));
+    outline-offset: 2px;
+  }
+
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    @apply font-display;
   }
 }
 
 @layer utilities {
-  .font-display {
-    font-family: var(--font-display);
+  [data-reveal] {
+    opacity: 0;
+    transform: translateY(26px) scale(0.99);
+    filter: blur(2px);
+    transition:
+      opacity 700ms ease,
+      transform 700ms ease,
+      filter 700ms ease;
+    transition-delay: var(--reveal-delay, 0ms);
+    will-change: opacity, transform, filter;
   }
-  .font-body {
-    font-family: var(--font-body);
+
+  [data-reveal].is-visible {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+    filter: blur(0);
+  }
+
+  .social-action:active {
+    animation: social-pop 220ms ease;
   }
 }
 
-@layer components {
-  .card-luxury {
-    @apply relative overflow-hidden bg-card border border-border rounded-sm;
-    transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+@keyframes social-pop {
+  0% {
+    transform: scale(1);
   }
-  .card-luxury::after {
-    content: '';
-    @apply absolute inset-0 opacity-0;
-    background: linear-gradient(135deg, hsl(0 0% 100% / 0.03), transparent 60%);
-    transition: opacity 0.5s;
+  35% {
+    transform: scale(0.9);
   }
-  .card-luxury:hover::after {
-    opacity: 1;
+  75% {
+    transform: scale(1.08);
   }
-  .card-luxury:hover {
-    transform: translateY(-6px);
-    border-color: hsl(0 0% 30%);
-    box-shadow: 0 30px 60px -20px hsl(0 0% 0% / 0.7);
-  }
-
-  .line-elegant {
-    @apply h-px;
-    background: linear-gradient(90deg, transparent, hsl(0 0% 40%), transparent);
-  }
-
-  .text-shimmer {
-    background: linear-gradient(110deg, hsl(0 0% 70%), hsl(0 0% 100%), hsl(0 0% 70%));
-    background-size: 200% 100%;
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    animation: shimmer 3s ease-in-out infinite;
-  }
-
-  @keyframes shimmer {
-    0%, 100% { background-position: 200% center; }
-    50% { background-position: 0% center; }
+  100% {
+    transform: scale(1);
   }
 }
